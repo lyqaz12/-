@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+      body{
+         text-align: center;
+      }
+      .box1{
+         display: flex;
+         justify-self: center;
+         align-items: center;
+         font-size: 24px;
+
+      }
+      .btn{
+         margin-top: 20px;
+      }
+      button{
+         font-size: 20px;
+         margin: 10px;
+      }
+      .qs{
+         color: red;
+      }
+      </style>
+</head>
+<body>
+<h1>监管者随机选择</h1>
+<div class="box1">
+   <span>角色：</span>
+   <div class="qs">默认</div>
+</div>
+<div class="btn">
+    <button id="start">开始</button>
+    <button id="stop">停止</button>
+</div>
+<script>
+   let timer = 0
+   const qs = document.querySelector(".qs")
+   const names = ["厂长","小丑","鹿头","杰克","蜘蛛","红蝶","黄衣之主","宿伞之魂","摄影师","疯眼","梦之女巫","爱哭鬼","26 号守卫","使徒安","孽蜥","小提琴家","雕刻家","博士","破轮","渔女","噩梦","记录员","隐士","守夜人","蜡像师","歌剧演员","艾维","愚人金","跛脚羊","女王蜂"]
+   const start = document.getElementById("start")
+   start.addEventListener("click",function(){
+          timer = setInterval(function(){
+           const randomIndex = Math.floor(Math.random()*names.length)
+           qs.innerHTML = names[randomIndex]
+       },100)
+   })
+   const stop = document.getElementById("stop")
+   stop.addEventListener("click",function(){
+      clearInterval(timer)
+   })
+
+</script>
+</body>
+</html>
